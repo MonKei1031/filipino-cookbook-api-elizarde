@@ -1,12 +1,12 @@
 # Filipino Cookbook API
 
-## 1. API Title
+##  API Title
 
 Filipino Cookbook API
 
 ---
 
-2. API Description
+## API Description
 
 The Filipino Cookbook API is a RESTful web service that provides structured information about traditional Filipino dishes, including their categories, origins, and ingredients. It is built to support developers and students who want to explore or consume Filipino culinary data programmatically.
 
@@ -16,7 +16,9 @@ Intended users: Students, developers, and client applications that need Filipino
 Main functions: Retrieving all foods, retrieving a specific food by ID, searching foods by name, retrieving categories, retrieving ingredients, and adding new foods.
 Technologies used: PHP, Slim Framework, MySQL, Composer, JSON.
 
-3. Features
+---
+
+## Features
 Retrieve all Filipino foods with their category, origin, and ingredients
 Retrieve a single food item by its ID
 Search for foods by name (partial match)
@@ -26,6 +28,8 @@ Add a new food item, including linked ingredients
 Authenticate all /api requests using a Bearer token
 Return all responses in JSON format
 Handle database errors gracefully with appropriate HTTP status codes
+
+---
 
 4. Technologies Used
 PHP
