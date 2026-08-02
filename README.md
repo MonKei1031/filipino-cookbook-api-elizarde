@@ -1,7 +1,10 @@
-Filipino Cookbook API
-1. API Title
+#Filipino Cookbook API
+
+##1. API Title
 
 Filipino Cookbook API
+
+---
 
 2. API Description
 
