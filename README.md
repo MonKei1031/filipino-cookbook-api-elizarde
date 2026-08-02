@@ -115,7 +115,9 @@ json
     "message": "Welcome to the Secured Filipino Cookbook API",
     "note": "Use a valid Bearer token to access /api endpoints."
 }
+
 ---
+
 Endpoint: GET /api/foods
 Description: Returns all Filipino foods, including category, origin, and ingredients for each.
 
@@ -149,6 +151,8 @@ json
     "status": "error",
     "message": "Unauthorized access. Valid API token is required."
 }
+
+---
 
 Endpoint: GET /api/foods/{id}
 Description: Returns the details of a specific food item by its ID.
@@ -205,7 +209,7 @@ json
         "ingredients": ["Bay Leaves", "Garlic", "Soy Sauce", "Vinegar"]
     }
 ]
-
+---
 Endpoint: GET /api/categories
 Description: Returns all available food categories.
 
