@@ -72,3 +72,273 @@ composer install
 - `food_ingredients` (junction table linking foods and ingredients)
 
 **Table relationships:**
+
+categories -> foods <- origins
+foods -> food_ingredients <- ingredients
+
+
+Each food belongs to one category and one origin. Each food can have multiple ingredients through the `food_ingredients` junction table, and each ingredient can belong to multiple foods.
+
+---
+
+## Base URL
+
+http://localhost/filipino-cookbook-api/public/api
+
+
+---
+
+## Authentication Instructions
+
+All endpoints under `/api` require a Bearer token in the request header.
+
+**Required header:**
+
+Authorization: Bearer dmmmsu-cookbook-token-2026
+
+
+If the `Authorization` header is missing or does not match the expected token, the API returns a `401 Unauthorized` response:
+
+```json
+{
+    "status": "error",
+    "message": "Unauthorized access. Valid API token is required."
+}
+```
+
+The root endpoint (`/`) does not require authentication and can be used to confirm the API is running.
+
+---
+
+## Endpoint Documentation
+
+### `GET /`
+**Description:** Returns a welcome message confirming the API is running. No authentication required.
+
+**Example request:**
+
+GET http://localhost/filipino-cookbook-api/public/
+
+
+**Example response:**
+```json
+{
+    "message": "Welcome to the Secured Filipino Cookbook API",
+    "note": "Use a valid Bearer token to access /api endpoints."
+}
+```
+
+---
+
+### `GET /api/foods`
+**Description:** Returns all Filipino foods, including category, origin, and ingredients for each.
+
+**Required headers:**
+
+Authorization: Bearer dmmmsu-cookbook-token-2026
+Accept: application/json
+
+
+**Example request:**
+
+GET http://localhost/filipino-cookbook-api/public/api/foods
+
+
+**Example successful response:**
+```json
+[
+    {
+        "food_id": 1,
+        "food_name": "Adobo",
+        "category_name": "Main Dish",
+        "origin_name": "Philippines",
+        "instructions": "Simmer pork or chicken in soy sauce, vinegar, garlic, and bay leaves.",
+        "ingredients": ["Bay Leaves", "Garlic", "Soy Sauce", "Vinegar"]
+    }
+]
+```
+
+**Example error response:**
+```json
+{
+    "status": "error",
+    "message": "Unauthorized access. Valid API token is required."
+}
+```
+
+---
+
+### `GET /api/foods/{id}`
+**Description:** Returns the details of a specific food item by its ID.
+
+**Required headers:**
+
+Authorization: Bearer dmmmsu-cookbook-token-2026
+
+
+**Example request:**
+
+GET http://localhost/filipino-cookbook-api/public/api/foods/1
+
+
+**Example successful response:**
+```json
+{
+    "food_id": 1,
+    "food_name": "Adobo",
+    "category_name": "Main Dish",
+    "origin_name": "Philippines",
+    "instructions": "Simmer pork or chicken in soy sauce, vinegar, garlic, and bay leaves.",
+    "ingredients": ["Bay Leaves", "Garlic", "Soy Sauce", "Vinegar"]
+}
+```
+
+**Example error response (food not found):**
+```json
+{
+    "status": "error",
+    "message": "Food not found"
+}
+```
+
+---
+
+### `GET /api/foods/search/{name}`
+**Description:** Searches for foods whose name partially matches the given search term.
+
+**Required headers:**
+
+Authorization: Bearer dmmmsu-cookbook-token-2026
+
+
+**Example request:**
+
+GET http://localhost/filipino-cookbook-api/public/api/foods/search/adobo
+
+
+**Example successful response:**
+```json
+[
+    {
+        "food_id": 1,
+        "food_name": "Adobo",
+        "category_name": "Main Dish",
+        "origin_name": "Philippines",
+        "instructions": "Simmer pork or chicken in soy sauce, vinegar, garlic, and bay leaves.",
+        "ingredients": ["Bay Leaves", "Garlic", "Soy Sauce", "Vinegar"]
+    }
+]
+```
+
+---
+
+### `GET /api/categories`
+**Description:** Returns all available food categories.
+
+**Required headers:**
+
+Authorization: Bearer dmmmsu-cookbook-token-2026
+
+
+**Example request:**
+
+GET http://localhost/filipino-cookbook-api/public/api/categories
+
+
+**Example successful response:**
+```json
+[
+    { "category_id": 1, "category_name": "Main Dish" },
+    { "category_id": 2, "category_name": "Dessert" }
+]
+```
+
+---
+
+### `GET /api/ingredients`
+**Description:** Returns all ingredients stored in the database.
+
+**Required headers:**
+
+Authorization: Bearer dmmmsu-cookbook-token-2026
+
+
+**Example request:**
+
+GET http://localhost/filipino-cookbook-api/public/api/ingredients
+
+
+**Example successful response:**
+```json
+[
+    { "ingredient_id": 1, "ingredient_name": "Soy Sauce" },
+    { "ingredient_id": 2, "ingredient_name": "Vinegar" }
+]
+```
+
+---
+
+### `POST /api/foods`
+**Description:** Adds a new food item, along with its linked ingredients.
+
+**Required headers:**
+
+Authorization: Bearer dmmmsu-cookbook-token-2026
+Content-Type: application/json
+
+
+**Example request body:**
+```json
+{
+    "food_name": "Sinigang",
+    "category_id": 1,
+    "origin_id": 1,
+    "instructions": "Boil pork with vegetables in a sour tamarind broth.",
+    "ingredient_ids": [3, 5, 7]
+}
+```
+
+**Example successful response:**
+```json
+{
+    "status": "success",
+    "message": "Food added successfully."
+}
+```
+
+**Example error response (missing fields):**
+```json
+{
+    "status": "error",
+    "message": "Invalid request body."
+}
+```
+
+---
+
+## HTTP Status Codes
+
+| Status Code | Meaning |
+|---|---|
+| 200 | Request completed successfully |
+| 201 | Resource created successfully |
+| 400 | Invalid request or missing parameter |
+| 401 | Missing or invalid authentication token |
+| 404 | Requested resource was not found |
+| 500 | Internal server error |
+
+---
+
+## Testing Evidence
+
+*[Insert screenshots here showing: a successful `GET /api/foods` request, a request with a missing/invalid token returning 401, a request for a non-existent food ID returning 404, and a successful `POST /api/foods` request. Add a short caption under each screenshot.]*
+
+---
+
+## Developer Information
+
+- **Name:** Mon Arkhie F. Elizarde
+- **Course and Section:** Bachelor of Science in Information Technology
+- **GitHub Username:** [MonKei1031](https://github.com/MonKei1031)
+- **Repository Link:** https://github.com/MonKei1031/filipino-cookbook-api-elizarde
+- **Date Completed:** 02/08/2026
