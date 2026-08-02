@@ -31,7 +31,7 @@ Handle database errors gracefully with appropriate HTTP status codes
 
 ---
 
-4. Technologies Used
+## Technologies Used
 PHP
 Slim Framework 4
 MySQL
@@ -42,7 +42,9 @@ Thunder Client / Postman
 Git
 GitHub
 
-5. Installation Instructions
+---
+
+## Installation Instructions
 git clone https://github.com/USERNAME/filipino-cookbook-api-elizarde.git
 cd filipino-cookbook-api-elizarde
 composer install
@@ -55,7 +57,9 @@ Place the project folder inside your server's htdocs directory.
 Run the API by navigating to the base URL in your browser or API client.
 Test the endpoints using Thunder Client or Postman.
 
-6. Database Setup
+---
+
+## Database Setup
 Database name: filipino_cookbook_api
 SQL file: filipino_cookbook_api.sql 
 
@@ -74,9 +78,10 @@ foods -> food_ingredients <- ingredients
 
 Each food belongs to one category and one origin. Each food can have multiple ingredients through the food_ingredients junction table, and each ingredient can belong to multiple foods.
 
-7. Base URL
+## Base URL
 http://localhost/filipino-cookbook-api/public/api
-8. Authentication Instructions
+
+## Authentication Instructions
 
 All endpoints under /api require a Bearer token in the request header.
 
@@ -94,7 +99,7 @@ json
 
 The root endpoint (/) does not require authentication and can be used to confirm the API is running.
 
-9. Endpoint Documentation
+## Endpoint Documentation
 
 Endpoint: GET /
 Description: Returns a welcome message confirming the API is running. No authentication required.
@@ -110,7 +115,7 @@ json
     "message": "Welcome to the Secured Filipino Cookbook API",
     "note": "Use a valid Bearer token to access /api endpoints."
 }
-
+---
 Endpoint: GET /api/foods
 Description: Returns all Filipino foods, including category, origin, and ingredients for each.
 
