@@ -102,6 +102,7 @@ The root endpoint (/) does not require authentication and can be used to confirm
 ## Endpoint Documentation
 
 Endpoint: GET /
+
 Description: Returns a welcome message confirming the API is running. No authentication required.
 
 Example request:
