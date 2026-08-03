@@ -331,7 +331,7 @@ Content-Type: application/json
 
 ## Testing Evidence
 
-*[Insert screenshots here showing: a successful `GET /api/foods` request, a request with a missing/invalid token returning 401, a request for a non-existent food ID returning 404, and a successful `POST /api/foods` request. Add a short caption under each screenshot.]*
+
 
 ---
 
