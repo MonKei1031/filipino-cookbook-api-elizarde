@@ -330,6 +330,40 @@ Content-Type: application/json
 ---
 
 ## Testing Evidence
+1. Retrieval of Food list
+   /api/foods
+   <img width="1552" height="570" alt="image" src="https://github.com/user-attachments/assets/6e8c0044-a358-43fe-81a3-a4959eff8fbe" />
+
+2. Retrieval of a Food by ID
+   /api/foods/{ID}
+   <img width="1570" height="609" alt="image" src="https://github.com/user-attachments/assets/54f9f77c-a9ca-4902-9c5a-4cfbce473324" />
+
+3. Retrieval of a Food by Name
+   /api/foods/search/{name}
+   <img width="1574" height="610" alt="image" src="https://github.com/user-attachments/assets/93c3036f-fa97-4dcf-aa98-a77e84dd1d6f" />
+
+4. Food Categories
+   /api/categories
+   <img width="1574" height="618" alt="image" src="https://github.com/user-attachments/assets/34bef669-081e-4301-a375-f03934e402d5" />
+
+5. Ingredients List
+   /api/ingredients
+   <img width="1565" height="605" alt="image" src="https://github.com/user-attachments/assets/396e7e7d-dea7-433f-82ed-72aa9e44a48c" />
+
+6. Creating New Food
+   (POST) http://localhost:8000/api/foods
+   <img width="1571" height="619" alt="image" src="https://github.com/user-attachments/assets/4e06674b-e0ed-47fa-80ef-1cf1685f3fc2" />
+   <img width="1571" height="618" alt="image" src="https://github.com/user-attachments/assets/f1c7a66b-1663-4f8b-a5c4-607273066cca" />
+
+7. No API Token
+   <img width="1567" height="605" alt="image" src="https://github.com/user-attachments/assets/fbc9c80e-de68-4055-ace9-b03e0ec59ca6" />
+
+8. Food not found
+   <img width="1569" height="609" alt="image" src="https://github.com/user-attachments/assets/79401633-c10e-4fbe-9bd6-813123944df7" />
+
+
+
+
 
 
 
