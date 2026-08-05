@@ -157,6 +157,14 @@ $app->group('/api', function ($group) {
             $stmt->execute(["%$name%"]);
             $foods = $stmt->fetchAll();
 
+            if (empty($foods)) {
+             $response->getBody()->write(json_encoded([
+                     "status" => "error",
+                     "message" => "No food found matching '{$name}'"
+                 ]));
+             return $response->withHeader('Content-Type', 'application/json')->withStatus(404);
+         }
+
             foreach ($foods as &$food) {
                 $food['food_id'] = (int)$food['food_id'];
                 $food['ingredients'] = getIngredientsForFood($db, $food['food_id']);
