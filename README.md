@@ -351,7 +351,7 @@ Content-Type: application/json
    <img width="1565" height="605" alt="image" src="https://github.com/user-attachments/assets/396e7e7d-dea7-433f-82ed-72aa9e44a48c" />
 
 6. Creating New Food
-   (POST) http://localhost:8000/api/foods
+   (POST) /api/foods
    <img width="1571" height="619" alt="image" src="https://github.com/user-attachments/assets/4e06674b-e0ed-47fa-80ef-1cf1685f3fc2" />
    <img width="1571" height="618" alt="image" src="https://github.com/user-attachments/assets/f1c7a66b-1663-4f8b-a5c4-607273066cca" />
 
